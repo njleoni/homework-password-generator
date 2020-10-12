@@ -22,4 +22,4 @@ https://github.com/njleoni/homework-password-generator
 
 ## Screenshot
 
-![Screenshot](/pw_generator.png)
+![Screenshot](/pw_generator.PNG)
