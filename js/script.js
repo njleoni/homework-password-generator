@@ -53,7 +53,10 @@ function generatePassword() {
     }
     if (confirmNumbers) {
       characters.push(numbers)
-    } 
+    }
+    if (confirmCharacters || confirmLower || confirmUpper || confirmNumbers){
+      genpass();
+    }
     //if they do not make any character selections, they will received an error message
     else if (!confirmCharacters && !confirmLower && !confirmUpper && !confirmNumbers){
       alert("You have to pick something!");
@@ -63,18 +66,20 @@ function generatePassword() {
     alert("Does not meet the criteria. Please enter a new value from 8 to 128.");
   }
     
-  // var merged = characters.concat(characters1, characters2, characters3);
-  var merged = characters.join("");
-    console.log(merged);
-      
-    //for loop will generate random password based on which characters were selected 
-    // and loop will run based on the length prompt input
-    for (var i = 0; i < pwLength; i++) {
-      passCode += merged[Math.floor(Math.random() * merged.length)];
-      password = passCode;
-      var passwordText = document.querySelector("#password");
-      passwordText.value = password;
-      }
-      
-  
+  function genpass() {
+    // var merged = characters.concat(characters1, characters2, characters3);
+      var merged = characters.join("")
+      console.log(merged);
+      //for loop will generate random password based on which characters were selected 
+      // and loop will run based on the length prompt input
+      for (var i = 0; i < pwLength; i++) {
+        passCode += merged[Math.floor(Math.random() * merged.length)];
+        password = passCode;
+        var passwordText = document.querySelector("#password");
+        passwordText.value = password;
+        }
+  } 
+         
 }
+
+
